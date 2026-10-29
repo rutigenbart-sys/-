@@ -106,5 +106,6 @@ if(form){
  form.addEventListener('submit',function(e){e.preventDefault()});
  var mx=$('#sMx');if(mx)mx.addEventListener('click',function(){build();try{navigator.clipboard&&navigator.clipboard.writeText(window.__msg)}catch(_){}});
 }
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href]');if(!a||!window.ym)return;var h=a.getAttribute('href'),g=h.indexOf('tel:')===0?'call':h.indexOf('wa.me')>-1?'whatsapp':h.indexOf('t.me')>-1?'telegram':h.indexOf('max.ru')>-1?'max':null;if(g)try{ym(113881875,'reachGoal',g)}catch(_){}},true);
 $$('[data-copy]').forEach(function(b){b.addEventListener('click',function(){try{navigator.clipboard.writeText(b.dataset.copy);var t=b.textContent;b.textContent='Скопировано';setTimeout(function(){b.textContent=t},1600)}catch(_){}})});
 })();
