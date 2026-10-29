@@ -25,7 +25,7 @@ if(hero){
  var sl=$$('.sl',hero),word=$('.hero-w span',hero),bars=$('.hero-bar',hero),cur=0,timer,dur=5500;
  sl.forEach(function(s,i){var b=document.createElement('i');b.addEventListener('click',function(){go(i,true)});bars.appendChild(b)});
  var bi=$$('i',bars);
- function lazy(i){var im=$('img',sl[i]);if(im&&im.dataset.src){im.src=im.dataset.src;delete im.dataset.src}}
+ function lazy(i){$$('img',sl[i]).forEach(function(im){if(im.dataset.src){im.src=im.dataset.src;delete im.dataset.src}})}
  function go(i,manual){
   cur=(i+sl.length)%sl.length;lazy(cur);lazy((cur+1)%sl.length);
   sl.forEach(function(s,k){s.classList.toggle('on',k===cur)});
